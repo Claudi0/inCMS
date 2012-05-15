@@ -1,0 +1,5 @@
+Sitemap: http://www.habbo.es/gsitemap-index.xml
+User-agent: *
+Disallow: /gamedata/
+Disallow: /habbo-imaging/
+Allow: /

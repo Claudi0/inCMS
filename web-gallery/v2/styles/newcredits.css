@@ -1,0 +1,364 @@
+.method {
+    color: #333;
+    font-size: 14px;
+    position: relative;
+}
+
+.method h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.method .smallprint {
+    color: #999;
+    font-size: 11px;
+    text-align: center;
+    padding: 14px;
+}
+
+/* online */
+
+.method-group.online {
+    background: #faefdb url(../images/newcredits/onlinemoney.png) 0 100% no-repeat;
+    margin: 10px 15px;
+    padding: 0 0 0 265px;
+    min-height: 210px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.method-group.online a.new-button.oversize b {
+    width: 120px;
+}
+
+.method-group.online .method {
+    padding: 14px 14px 14px 0;
+    border-top: 1px dashed #f90;
+}
+
+.method-group.online .method.first {
+    border-top: 0;
+}
+
+.method-group.online .method h2 {
+    font-size: 20px;
+}
+
+.method-group.online .method.first h2 {
+    font-size: 30px;
+}
+
+/* phone/other */
+
+.method-group.phone .method,
+.method-group.other .method {
+    margin-left: 15px;
+    float: left;
+    width: 357px;
+}
+
+.method-group.phone .method.first,
+.method-group.other .method.first {
+    margin-right: 1px;
+}
+
+/* phone */
+
+.method-group.phone {
+    padding-top: 5px;
+}
+
+.method-group.phone .method h2 {
+    text-align: center;
+    margin-right: 117px;
+}
+
+.method-group.phone .method-content div.summary {
+    background-color: #eaeaea;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.method-group.phone .method-content ol {
+    padding: 14px 0 14px 33px;
+    margin: 0 117px 0 0;
+}
+
+.method-group.phone .method-content ol li {
+    list-style: decimal outside;
+    color: #da0;
+    font-size: 12px;
+    padding: 0;
+    margin-bottom: 4px;
+}
+
+.method-group.phone .method-content ol li div {
+    color: #333;
+}
+
+.method-group.phone .method-content ol li div strong {
+    color: #000;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.method-group.phone .method-content ol li div em {
+    color: #229800;
+    font-size: 18px;
+    font-style: normal;
+    display: block;
+    margin: 9px -103px 0 0;
+    padding: 7px 9px;
+    background-color: #fff;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+/* redeem form */
+
+.method-group.phone .redeem {
+    background-color: #d0edb7;
+    padding: 7px;
+    margin: 7px -103px 0 0;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.method-group.phone .redeemcode {
+    float: left;
+    padding: 3px;
+}
+
+.method-group.phone .redeem-submit {
+    float: left;
+    margin-bottom: 0;
+}
+
+.method-group.phone .redeem a {
+    color: #000;
+}
+
+.method-group.phone .method-content ol li div.rounded-red,
+.method-group.phone .method-content ol li div.rounded-green {
+    color: #fff;
+    font-size: 11px;
+    clear: both;
+}
+
+/* habbo id form */
+
+.method-group.phone .habboid-container {
+    display: inline;
+}
+
+.method-group.phone .habboid {
+    background-color: #fff;
+    padding: 7px;
+    margin: 7px -103px 0 0;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.method-group.phone .habboid-name {
+    float: left;
+}
+
+.method-group.phone .habboid .new-button {
+    float: left;
+    margin-bottom: 0;
+}
+
+/* price tag */
+
+.method-group.phone .price {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    width: 106px;
+    height: 78px;
+    padding-top: 28px;
+    font-size: 22px;
+    background: url(../images/newcredits/blast.png) no-repeat;
+}
+
+.method-group.phone .price b {
+    display: block;
+}
+
+.method-group.phone .price b.amount {
+    display: inline;
+    font-size: 18px;
+    background: url(../images/newcredits/blast_coin.png) 0 0 no-repeat;
+    padding-left: 40px;
+}
+
+/* other */
+
+.method-group.other {
+    border-top: 1px solid #e6e6e6;
+    padding-top: 14px;
+}
+
+.method-group.other .method {
+    text-align: center;
+}
+
+.method-group.other .method h2 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.method-group.other .method-content {
+    font-size: 12px;
+}
+
+.method-group.other .method ul {
+    margin: 5px 0;
+}
+
+.method-group.other .method ul li {
+    display: inline;
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+/* more info */
+
+.method-group.other .method.first {
+    padding: 10px 0;
+}
+
+a.moreinfo {
+    font-size: 19px;
+    color: #333;
+}
+
+/* disclaimer */
+
+.disclaimer {
+    margin: 21px 0 3px 0;
+    padding: 14px;
+    border: 1px solid #f09494;
+    border-left: 0;
+    border-right: 0;
+    text-align: center;
+    background-color: #ffd7d7;
+    font-size: 12px;
+}
+
+/* redeem habblet */
+
+#redeem-habblet div, #redeem-habblet form {
+    font-size : 11px;
+    color : white;
+}
+
+#redeem-habblet p {
+    padding-bottom : 0em;
+}
+
+#redeem-habblet a:link, #redeem-habblet a:visited {
+    color : #93db39;
+}
+
+#redeem-habblet div.redeem-balance {
+    background-color:#4A4A4A;
+    float:left;
+    padding: 10px 10px 15px 10px;
+    margin-left : 4px;
+    text-align:center;
+    width:114px;
+    border-radius: 4px;
+    -moz-border-radius : 4px;
+    -webkit-border-radius : 4px;
+}
+
+#redeem-habblet p.redeem-balance-username {
+	font-weight: bold;
+}
+
+#redeem-habblet p.redeem-balance-text {
+    padding-bottom: 7px;
+}
+
+#redeem-habblet .redeem-balance-amount {
+    background-image:url(../images/newcredits/purse_coin.png);
+    background-repeat:no-repeat;
+    font-size:1.5em;
+    font-weight:bold;
+    padding: 0 0 8px 43px;
+}
+
+#redeem-habblet div.redeem-redeeming {
+    background-color:#747474;
+    float:left;
+    width: 310px;
+}
+
+#redeem-habblet div.redeem-redeeming-text {
+    float : left;
+    width: 250px;
+    background: url(../images/newcredits/purse_arrow.png) 100% 50% no-repeat;
+}
+
+#redeem-habblet .redeem-form-container {
+    float: left;
+    padding: 17px 0 0 10px;
+}
+
+#redeem-habblet p.redeeming-text {
+    padding: 20px 20px 20px 30px;
+    text-align:center;
+}
+
+#redeem-habblet input.redeemcode {
+    width: 155px;
+    float: left;
+    border-color: #728f59;
+    border-style: solid;
+    border-width: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+#redeem-habblet div.redeem-redeeming-button {
+    float : left;
+    padding-top: 2px;
+}
+
+#redeem-habblet div.redeem-past-transactions {       
+    text-align: left;
+    clear: both;
+}
+
+div.redeem-result {
+    clear: both;
+    text-align: center;
+    padding-top: 4px;
+}
+
+#redeem-habblet div.redeem-reauthenticate {
+    float : left;
+    background-color: #747474;
+    padding-top: 25px;
+    padding-left: 80px;
+    width : 530px;
+    height : 58px;
+    font-size : 1.0em;
+    font-weight : bold;
+}
+
+#redeem-habblet div.redeem-login-required {
+    text-align : center;
+}
+
+

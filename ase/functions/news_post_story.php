@@ -1,0 +1,15 @@
+<?php
+require_once("../../includes/core.php");
+if(!get_userinfo("username") < 6)
+{
+header("Location: ../error");
+die;
+}
+
+if(isset($_POST['shortstory']) && isset($_POST['longstory']) && isset($_POST['image']) && isset($_POST['title']) && isset($_POST['campaign']) && isset($_POST['super_fader']))
+{
+	$query = mysql_query("INSERT INTO cms_news (id, title, shortstory, longstory, author, published, image, campaign, super_fader, campaignimg, super_fader_image) VALUES
+(NULL, '".$core->EscapeStringHK($_POST['title'])."', '".$core->EscapeStringHK(urldecode($_POST['shortstory']))."', '".$core->EscapeStringHK(urldecode($_POST['longstory']))."', 'Admin', ".time().", '".$core->EscapeStringHK($_POST['image'])."', ".$core->EscapeStringHK($_POST['campaign']).", ".$core->EscapeStringHK($_POST['super_fader']).", '".$core->EscapeStringHK($_POST['campaignimage'])."', '".$core->EscapeStringHK($_POST['super_fader_image'])."')");
+}
+?>
+

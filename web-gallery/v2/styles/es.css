@@ -1,0 +1,9 @@
+/* Localised top bar Habbo logo */
+#header h1 a {
+  width: 111px;
+  background-image: url(http://images.habbohotel.es/c_images/album831/ES_big_lightBG_tag.gif);
+}
+
+body {
+background-image: url("http://images.habbohotel.es/c_images/themes/bg_pattern_easter.gif");
+}
