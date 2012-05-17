@@ -55,7 +55,17 @@ if (typeof HabboClient != "undefined") {
          <div id="subnavi-search-upper">
 
                <ul id="subnavi-search-links">
-
+<?php	if(isset($_SESSION['id'])){
+if(get_userinfo("rank")>=5){
+?>
+<li>
+<a href="<?php echo get_settings("hotel_url"); ?>/ase">Panel</a>
+<span></span>
+</li>
+<?php
+}
+}
+?>
                                
 <li>
 <a href="./FAQ/index.php">FAQ</a>
@@ -122,6 +132,7 @@ if (typeof HabboClient != "undefined") {
 				
 			</li>
 	</ul>
+
     </div>
 </div>
 

@@ -1,9 +1,9 @@
 <?php
 require_once("../../includes/core.php");
-if(!get_userinfo("username") < 6)
-{
-header("Location: ../error");
-die;
+if(!isset($_SESSION['id'])) {
+if(get_userinfo("rank")>=5) {
+header("Location: ../error.php");
+}
 }
 if(isset($_POST['timer']) && isset($_POST['pixels']) && isset($_POST['credits']) && isset($_POST['motd']))
 {

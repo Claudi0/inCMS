@@ -1,6 +1,10 @@
 <?php
 require_once("../includes/core.php");
-
+if(!isset($_SESSION['id'])) {
+if(get_userinfo("rank")>=5) {
+header("Location: ./error.php");
+}
+}
 ?>
 <title><?php echo get_title(); ?> - Panel</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />

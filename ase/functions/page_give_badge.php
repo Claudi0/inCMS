@@ -1,6 +1,10 @@
 <?php
 require_once("../../includes/core.php");
-
+if(!isset($_SESSION['id'])) {
+if(get_userinfo("rank")>=5) {
+header("Location: ../error.php");
+}
+}
 
 ?>
 <script type="text/javascript" src="../web-gallery/tiny_mce/jquery.tinymce.js"></script>

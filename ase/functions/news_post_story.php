@@ -1,11 +1,10 @@
 <?php
 require_once("../../includes/core.php");
-if(!get_userinfo("username") < 6)
-{
-header("Location: ../error");
-die;
+if(!isset($_SESSION['id'])) {
+if(get_userinfo("rank")>=5) {
+header("Location: ../error.php");
 }
-
+}
 if(isset($_POST['shortstory']) && isset($_POST['longstory']) && isset($_POST['image']) && isset($_POST['title']) && isset($_POST['campaign']) && isset($_POST['super_fader']))
 {
 	$query = mysql_query("INSERT INTO cms_news (id, title, shortstory, longstory, author, published, image, campaign, super_fader, campaignimg, super_fader_image) VALUES
