@@ -1,5 +1,5 @@
 <?php
-require_once("../includes/core.php");
+require_once("./asecore.php");
 if(!isset($_SESSION['id'])) {
 if(get_userinfo("rank")>=5) {
 header("Location: ./error.php");
