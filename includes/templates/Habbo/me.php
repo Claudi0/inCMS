@@ -4,6 +4,9 @@ $page['sub_id']="1";
 $page['name']="me";
 $page['redirect']="1";
 require_once("./includes/core.php");
+
+if ($upbar==TRUE) {
+require_once('./includes/upbar.php');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
