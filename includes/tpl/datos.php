@@ -1,0 +1,17 @@
+<?php
+			// COMPLETAR CON TUS DATOS
+			$host = "localhost"; // HOST
+			$user = "root";  // USUARIO GENERALMENTE ROOT
+			$pw = "1825510nicolas";	 // PASSWORD
+			$db = "holodb"; // DATABASE
+			
+			//EDITAR EL ID CON LA PREGUNTA QUE DESEAS MOSTRAR - EL ID LO VES EN LA DB EN LA TABLA "preguntas"
+			// VA EN ORDEN - LA PRIMER PREGUNTA CREADA TIENE EL ID 1 LA SEGUNDA EL 2  y ASI SUCESIVAMENTE
+			$id = "1";
+			
+			// CANTIDA DE CREDITS QUE SE SUMARAN CUANDO HAYA UNA RESPUESTA CORRECTA
+			$premio = 5000;
+			
+						
+
+?>

@@ -1,5 +1,6 @@
 <?php
 require_once("../../includes/core.php");
+<<<<<<< HEAD
 if(isset($_SESSION['id'])){
 if(get_userinfo("rank")>=5){
 header("Location: ../error.php");
@@ -10,6 +11,13 @@ if(!get_userinfo("username") < 6)
 header("Location: .../error.php");
 die;
 }
+=======
+if(!isset($_SESSION['id'])) {
+if(get_userinfo("rank")>=5) {
+header("Location: ../error.php");
+}
+}
+>>>>>>> 7c839e39a7ac190e70d09de82cf03f573169b867
 if(isset($_POST['host']) && isset($_POST['port']) && isset($_POST['port']) && isset($_POST['client_texts']) && isset($_POST['client_vars']) && isset($_POST['client_base']) && isset($_POST['client_base']))
 {
 	$query = mysql_query("UPDATE cms_settings SET value = '".$core->EscapeStringHK($_POST['host'])."' WHERE variable = 'host'");

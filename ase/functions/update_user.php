@@ -1,7 +1,12 @@
 <?php
 require_once("../../includes/core.php");
+<<<<<<< HEAD
 if(isset($_SESSION['id'])){
 if(get_userinfo("rank")>=5){
+=======
+if(!isset($_SESSION['id'])) {
+if(get_userinfo("rank")>=5) {
+>>>>>>> 7c839e39a7ac190e70d09de82cf03f573169b867
 header("Location: ../error.php");
 }
 }

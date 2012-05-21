@@ -1,8 +1,15 @@
 <?php
+<<<<<<< HEAD
 require_once("../includes/core.php");
 if(isset($_SESSION['id'])){
 if(get_userinfo("rank")>=5){
 header("Location: ./error");
+=======
+require_once("./asecore.php");
+if(!isset($_SESSION['id'])) {
+if(get_userinfo("rank")>=5) {
+header("Location: ./error.php");
+>>>>>>> 7c839e39a7ac190e70d09de82cf03f573169b867
 }
 }
 ?>
@@ -169,6 +176,7 @@ header("Location: ./error");
                     Last IP: <strong id="<?php echo $user['ip_last']; ?>" class="tooltip" title="Search by IP" onClick="Search2('ip',this.id);"><?php echo $user['ip_last']; ?></strong><br />
                     Last Login: <strong><?php echo @date("d-m-Y H:i",$user['last_online']); ?></strong><br />
                     Rank: <strong id="<?php echo $user['rank']; ?>" class="tooltip" title="Search by Rank" onClick="Search2('rank',this.id);"><?php echo $user['rank']; ?></strong><br />
+<<<<<<< HEAD
                     <strong id="<?php echo $user['username']; ?>" class="tooltip" title="Search user's rooms" onClick="SearchRooms(this.id);">My Rooms</strong><?php if($users->UserPermission('hk_ext_login', $usuario)) { ?> ~ <strong id="<?php echo $user['username']; ?>" class="tooltip" title="Login with this user" onClick="window.open('../client/?username=<?php echo $user['username']; ?>&ticket=<?php echo $ticket; ?>','ClientWndw','width=980,height=597');return false;">Login with this user</strong><?php } ?></p>
                     <?php if($users->UserPermission('hk_edit', $usuario))
 					{
@@ -177,6 +185,12 @@ header("Location: ./error");
                     <?php
 					}
 					?>
+=======
+                    <strong id="<?php echo $user['username']; ?>" class="tooltip" title="Search user's rooms" onClick="SearchRooms(this.id);">My Rooms</strong> ~ <strong id="<?php echo $user['username']; ?>" class="tooltip" title="Login with this user" onClick="window.open('../client/?username=<?php echo $user['username']; ?>&ticket=<?php echo $ticket; ?>','ClientWndw','width=980,height=597');return false;">Login with this user</strong></p>
+                    
+                    <?php if($user['vip'] == 0) { ?><button id="MakeVIP<?php echo $user['id']; ?>" onclick="MakeVIP('<?php echo $user['id']; ?>', 1,2);" style="margin:5px;">Make VIP</button><?php } ?><?php if($user['vip'] == 1) { ?><button id="MakeVIP<?php echo $user['id']; ?>" onclick="MakeVIP('<?php echo $user['id']; ?>', 0, 1);" style="margin:5px;">Remove VIP</button><?php } ?><button id="<?php echo $user['id']; ?>" class="modify" style="margin:5px;">Edit user</button>
+                   
+>>>>>>> 7c839e39a7ac190e70d09de82cf03f573169b867
 				</div>
             <?php
 			}

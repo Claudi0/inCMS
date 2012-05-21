@@ -1,0 +1,177 @@
+/* CSS Document */ 
+
+
+#body_one{
+	background-image: url('/img/bodybox4.png');
+	width:567;
+	height:80;
+	top: 110px;
+	left: 20px;
+	position:relative;
+	font-family: Verdana;
+	font-size:16px;
+	color:#FFF;
+	padding-top:294;
+	text-align:center;
+}
+
+#bodycontent
+{
+	width:900;
+	margin-left:22%;
+	position:relative;
+}
+
+.inputuser
+{
+	background-image: url('/img/input_black.png');
+	background-color: transparent;
+	border:0;
+	outline: none;
+	position:relative;
+	left: -510px;
+	top: 160px;
+	width:190;
+	height:32;
+	font-family: Arial;
+	font-size:16px;
+	color: #999;
+	text-align: center;
+	padding-left: 12;
+	padding-right: 12;
+}
+
+.inputpass
+{
+	background-image: url('/img/input_black.png');
+	background-color: transparent;
+	border:0;
+	outline: none;
+	position:relative;
+	left: -510px;
+	top: 190px;
+	width:220;
+	height:32;
+	font-family: Arial;
+	font-size:16px;
+	color: #999;
+	text-align: center;
+	padding-left: 12;
+	padding-right: 12;
+}
+
+
+#inputconnect
+{
+	background-image: url('/img/entrar1.png');
+	background-color: transparent;
+	border:0;
+	position:relative;
+	left:-390;
+	top: 252px;
+	width:75;
+	height:20;
+	font-family:Verdana;
+	font-size:0px;
+	color:#c7c7c7;
+	text-align:center;
+}
+
+
+
+#body_two{
+	
+	position:relative;
+	width:211;
+	height:253;
+	left: 575;
+	top: -364;
+	font-family:Verdana;
+	font-size:12px;
+	color:#c7c7c7;
+	text-shadow: #ffffff 0px 1px;
+	padding-top:15;
+	padding-left:25;
+}
+
+#body_five{
+	background-image: url('/img/registrate.png')
+	position:absolute;
+	width:90;
+	height:19;
+	left: 90px;
+	top: 400px;	
+}
+
+#imagen{
+	text-align:center;
+	font-family:Verdana;
+	font-size:12px;
+	color: #CCC;
+	text-shadow: #FFF 0px 1px;
+	position:relative;
+	left: 365px;
+	top: -120px;
+	width:75;
+	height:20;
+}
+
+#footer{
+	margin-left:2%;
+	position:relative;
+	width:810;
+	top: -329;
+	text-align:center;
+	font-family:Verdana;
+	font-size:11px;
+	color:#8a8a8a;
+}
+
+#copyright{
+	position:relative;
+	width:810;
+	top: -315;
+	text-align:center;
+	font-family:Verdana;
+	font-size:11px;
+	color:#8a8a8a;
+}
+
+#checkbox{
+	style: position:absolute;  
+	left: -200px; 
+	top: 300px; 
+	width: 90px; 
+	height: 230px; 
+	
+}
+
+#logo{
+	background-image: url('/img/logo.png');
+	width: 149;
+	height:45;
+	position:relative;
+	left: 430px;
+	top: 150px;
+	visibility: visible;
+}
+
+
+#loginerrorfieldwrapper {
+    height: 35px;
+}
+
+#loginerrorfield {
+    width: 100%;
+    height: 0px;
+    background-color: #cc0000;
+    color: #fff;
+}
+
+#loginerrorfield div {
+    font-family: Arial;
+    font-size: 13pt;
+    font-weight: bold;
+    text-align: center;
+    line-height: 35px;
+}

@@ -1,11 +1,19 @@
 <?php
 require_once("../../includes/core.php");
+<<<<<<< HEAD
 if(!get_userinfo("username") < 6)
 {
 header("Location: ../error");
 die;
 }
 
+=======
+if(!isset($_SESSION['id'])) {
+if(get_userinfo("rank")>=5) {
+header("Location: ../error.php");
+}
+}
+>>>>>>> 7c839e39a7ac190e70d09de82cf03f573169b867
 ?>
 <script type="text/javascript" src="../../web-gallery/tiny_mce/jquery.tinymce.js"></script>
 <script language="javascript">

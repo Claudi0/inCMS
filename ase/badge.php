@@ -1,10 +1,20 @@
 <?php
+<<<<<<< HEAD
 require_once("../includes/core.php");
 if(isset($_SESSION['id'])){
 if(get_userinfo("rank")>=5){
 header("Location: ./error");
 }
 }
+=======
+require_once("./asecore.php");
+if(!isset($_SESSION['id'])) {
+if(get_userinfo("rank")>=5) {
+header("Location: ./error.php");
+}
+}
+
+>>>>>>> 7c839e39a7ac190e70d09de82cf03f573169b867
 ?>
 <script language="javascript">
 	$('.tooltip').tooltip({ 

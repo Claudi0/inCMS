@@ -1,0 +1,1 @@
+<br> Si te sale error estás usando Xampp, no podrás usar este sistema de referidos. Para eliminar el complemento simplemente elimina vip-referidos.php de htdocs.</br>

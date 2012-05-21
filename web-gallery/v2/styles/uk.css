@@ -1,0 +1,9 @@
+#front-tags div.cb { display: none; }
+#front-tags {
+   height: 194px;
+   width: 310px;
+   background-image: url('http://images.habbohotel.co.uk/c_images/shark_tale/uk_party_frontpage_image.gif');
+   background-repeat: no-repeat;
+   margin-left: 0px;
+   cursor: pointer;
+}
