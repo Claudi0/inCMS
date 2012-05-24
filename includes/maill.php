@@ -1,52 +1,21 @@
 <?php
-require_once("../includes/config1.php");
+require("./mailler/class.phpmailer.php");
 
-$page['id']="0";
-$page['sub_id']="0";
-$page['name']="register_captcha_submit";
-$page['redirect']="0";
-require_once("../includes/core.php");
-if(isset($_SESSION['step'])){
-if($_SESSION['step']==2){
-header("location: ../email_password");
-exit;
-}
-if($_SESSION['step']==1){
-header("location: ../age_gate");
-exit;
-}
-}else{
-$_SESSION['step']=1;
-header("location: ../age_gate/e/05x");
-exit;
-}
-
-if(isset($_SESSION['captcha'])){
-if(isset($_POST['captchaResponse'])){
-if($_SESSION['captcha']==$_POST['captchaResponse']){
-$explode = explode('@',$_SESSION['bean_email']);
-$bean_username = mysql_real_escape_string($explode[0].rand(1000,9999));
-$bean_email = mysql_real_escape_string($_SESSION['bean_email']);
-$bean_password = md5($_SESSION['bean_password']);
-$bean_figure = mysql_real_escape_string($_POST['bean_figure']);
-mysql_query("INSERT INTO `users` (`username`, `password`, `mail`, `rank`, `credits`, `pixels`, `look`, `gender`, `isonline`, `ip`, `lastaccess`, `default`) VALUES ('".$bean_username."', '".$bean_password."', '".$bean_email."', '1', '".get_settings("initial_credits")."', '".get_settings("initial_pixels")."', '".$bean_figure."', '".$_SESSION['bean_gender']."', '0', '".$_SERVER['REMOTE_ADDR']."', '0', '1');") or die (mysql_error());
-
-require_once("../includes/mailler/class.phpmailer.php");
 $mail = new PHPMailer();
 
 $mail->IsSMTP();                                      // set mailer to use SMTP
-$mail->Host = "$smtp_host";  // specify main and backup server
+$mail->Host = "smtp.gmail.com;smtp2.gmail.com";  // specify main and backup server
 $mail->SMTPAuth = true;     // turn on SMTP authentication
-$mail->Username = "$smtp_username";  // SMTP username
-$mail->Password = "$smtp_password"; // SMTP password
+$mail->Username = "iclaudi04s";  // SMTP username
+$mail->Password = "santoro151996cs11"; // SMTP password
 
-$mail->From = "$smtp_email";
-$mail->FromName = "$HotelName";
-$mail->AddAddress("$bean_email", "$bean_username");
+$mail->From = "iclaudi04s@gmail.com";
+$mail->FromName = "Mailer";
+$mail->AddAddress("Claudi0@hotmail.com.br", "Claudio Santoro");
 
 $mail->IsHTML(true);                                  // set email format to HTML
 
-$mail->Subject = "Bem Vindo ao Hotel!";
+$mail->Subject = "Here is the subject";
 $mail->Body    = "<table width='98%' border='0' cellspacing='0' cellpadding='0'>
     <tbody><tr>
         <td align=center>
@@ -57,7 +26,7 @@ $mail->Body    = "<table width='98%' border='0' cellspacing='0' cellpadding='0'>
                         <table border='0' cellpadding='0' cellspacing='0'>
                             <tbody><tr>
                                 <td>
-                                    <img src='http://cotendo.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1058/web-gallery/v2/images/habbologo_whiteR.gif' alt='Habbo'>
+                                    <img src='http://cotendo.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1058/web-gallery/v2/images/habbologo_whiteR.gif' alt='Habbo' width='110' heiht='40' style='margin-left:12px;display:block'>
                                 </td>
                             </tr>
 
@@ -72,10 +41,10 @@ $mail->Body    = "<table width='98%' border='0' cellspacing='0' cellpadding='0'>
             <tbody><tr>
                 <td valign='top'>
                                     <p style='font-family:Verdana,Arial,sans-serif;font-size:20px;padding-top:15px'>
-                                        Olá, $bean_email
+                                        Olá, Claudi0@hotmail.com.br
                                     </p>
                                     <p style='font-family:Verdana,Arial,sans-serif;font-size:12px;padding-bottom:5px'>
-                                       Bem Vindo ao Hotel! <a href='$hotelurl' target='_blank'>Clique aqui para Entrar no Hotel</a>.
+                                        Para mudar sua senha clique <a href='https://www.habbo.com.br/account/password/resetIdentity/88192f2bcd52d37e4e9a24d59b335fca7b1f60e50699b252b0807e2715198be4510cbf029185e8a02c327ebf80955ab41e6f1485f1c0db7cc5c9ea6981963491d059549f9d58a4f64b39ae6a8eeb54dd0a320f2dc399c05cee3838b96b88dec0eaca31162d502f5830d990f3eb0fd077' target='_blank'>neste link para alterar</a>.
                                     </p>
 </td>
 </tr>
@@ -92,7 +61,7 @@ $mail->Body    = "<table width='98%' border='0' cellspacing='0' cellpadding='0'>
                             <td style='height:100%;vertical-align:middle;border:solid 2px #000000' valign='middle'>
                                 <p style='font-family:Verdana,Arial,sans-serif;font-weight:bold;font-size:18px;color:#ffffff;margin-bottom:0'>
                                                 <a style='text-decoration:none;padding:15px 20px;color:#ffffff' href='https://www.habbo.com.br/account/password/resetIdentity/88192f2bcd52d37e4e9a24d59b335fca7b1f60e50699b252b0807e2715198be4510cbf029185e8a02c327ebf80955ab41e6f1485f1c0db7cc5c9ea6981963491d059549f9d58a4f64b39ae6a8eeb54dd0a320f2dc399c05cee3838b96b88dec0eaca31162d502f5830d990f3eb0fd077' target='_blank'>
-                                                   Esperamos que tenha um Bom Jogo!
+                                                    Alterar minha senha Habbo
                                                 </a>
 </p>
 </td>
@@ -131,24 +100,4 @@ if(!$mail->Send())
 }
 
 echo "Message has been sent";
-
-$get_id = mysql_query("SELECT id FROM `users` WHERE `username` = '".$bean_username."';");
-$get_id_result = mysql_fetch_array($get_id);
-$_SESSION['id'] = $get_id_result['id'];
-$_SESSION['step'] = 0;
-header("location: ../me");
-exit;
-}else{
-header("location: captcha/e/12x");
-exit;
-}
-}else{
-header("location: captcha/e/12x");
-exit;
-}
-}else{
-header("location: captcha/e/12x");
-exit;
-}
-
 ?>
