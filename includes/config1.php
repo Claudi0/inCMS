@@ -26,4 +26,8 @@ $smtp_username = "iclaudi04s"; // Se for GMail é tudo antes do @ e se for hotmai
 $smtp_password = "santoro151996cs11"; // Senha do E-Mail
 $smtp_email = "iclaudi04s@gmail.com"; // SEU EMAIL
 
+// Language Configuration
+$lang_ui = "PT";
+
+
 ?>
