@@ -48,5 +48,11 @@ public function UserInfo($u_name = '', $row = '')
 		$user = mysql_fetch_array(mysql_query("SELECT * FROM users WHERE username = '".$u_name."' LIMIT 1"));
 		return $user[$row];
 	}
+public function get_userinfo($get){
+$id2=mysql_real_escape_string($_SESSION['id']);
+$sql=mysql_query("SELECT * FROM `users` WHERE `id` LIKE '$id2'");
+$return=mysql_fetch_array($sql);
+return $return[$get];
+}	
 }
 ?>

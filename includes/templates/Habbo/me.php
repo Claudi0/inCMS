@@ -86,6 +86,10 @@ if(get_userinfo("rank")>=5){
 				<a href="/profile">Profile</a>
 				
 			</li>
+			<li>
+				<a href="/home">My Page</a>
+				
+			</li>
 	</ul>
 
     </div>

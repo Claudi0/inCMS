@@ -144,9 +144,7 @@ $(document).ready(function(){
 			<li onclick="LoadPage('basics');" id="basics"><a class="active_page">Basics</a></li>
 				<li onclick="LoadPage('news');" id="news"><a class="icon_article">News</a></li>
 				<li onclick="LoadPage('users');" id="users" ><a class="icon_users">Users</a></li>
-				<li onclick="LoadPage('rooms');" id="rooms" ><a class="icon_email">Rooms</a></li>
-                <li onclick="LoadPage('mod');" id="mod" ><a class="icon_folder">MOD</a></li>
-                <li onclick="LoadPage('voucher');" id="voucher" ><a class="icon_article">Credits</a></li>
+				<li onclick="LoadPage('code');" id="code" ><a class="icon_email">Beta Codes</a></li>
                 <li onclick="LoadPage('badge');" id="badge" ><a class="icon_logout">Badge</a></li>
                 <li onclick="LoadPage('permissions');" id="permissions" ><a class="icon_folder">Ranks</a></li>
 			</ul><!-- Main Navigation End -->

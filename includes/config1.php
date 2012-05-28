@@ -8,7 +8,7 @@ $MyDB = "Azure";
 // Skins e Template Management
 $template = "Habbo";
 $twitter = "AtClaud0";
-$habboweb = "1058";
+$habboweb = "1064";
 $habbologo = "./web-gallery/v2/images/habbologo_whiteR.gif";
 
 // Message of Day
@@ -29,5 +29,7 @@ $smtp_email = "iclaudi04s@gmail.com"; // SEU EMAIL
 // Language Configuration
 $lang_ui = "PT";
 
+// Habbo Beta Code System
+$betais = "1";
 
 ?>
