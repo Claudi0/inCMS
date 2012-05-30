@@ -1,6 +1,8 @@
 <?php
 require_once("../includes/config1.php");
 
+if ($emulator=="azure") {
+
 $page['id']="0";
 $page['sub_id']="0";
 $page['name']="register_captcha_submit";
@@ -237,6 +239,7 @@ if(!$mail->Send())
 echo "Message has been sent";
 }
 
+
 $get_id = mysql_query("SELECT id FROM `users` WHERE `username` = '".$bean_username."';");
 $get_id_result = mysql_fetch_array($get_id);
 $_SESSION['id'] = $get_id_result['id'];
@@ -255,5 +258,253 @@ exit;
 header("location: captcha/e/12x");
 exit;
 }
+}
 
+if ($emulator=="phoenix") {
+$password = md5($_POST['password']);
+if(isset($_SESSION["account"]) && $_POST['character'] == '1')
+{
+	$account = $_SESSION['account'];
+	$query = mysql_query("SELECT * FROM users WHERE mail = '".$account."' LIMIT 1");
+	$user = mysql_fetch_array($query);
+	$password = $user['password'];
+	$email = $_SESSION['account'];
+}
+else
+{
+	$email = $core->EscapeString($_POST['email']);
+	$query = mysql_query("SELECT * FROM users WHERE mail = '".$email."' LIMIT 1");
+	if(mysql_num_rows($query) > 0)
+	{
+	header("Location: ../index.php?error=email");
+	exit;
+	}
+}
+
+$username = $core->EscapeString($_POST['username']);
+if($users->NameTaken($username))
+{
+header("Location: ../index.php?error=username");
+exit;
+}
+
+if(!$users->ValidName($username))
+{
+header("Location: ../index.php?error=username");
+exit;
+}
+
+$users->AddUser($username, $password, $email, $core->EscapeString($_POST['figure']), 'Welcome!');
+
+if ($lang_ui=="PT") {
+require_once("../includes/mailler/class.phpmailer.php");
+$mail = new PHPMailer();
+
+$mail->IsSMTP();                                      // set mailer to use SMTP
+$mail->Host = "$smtp_host";  // specify main and backup server
+$mail->SMTPAuth = true;     // turn on SMTP authentication
+$mail->Username = "$smtp_username";  // SMTP username
+$mail->Password = "$smtp_password"; // SMTP password
+
+$mail->From = "$smtp_email";
+$mail->FromName = "$HotelName";
+$mail->AddAddress("$email", "$username");
+
+$mail->IsHTML(true);                                  // set email format to HTML
+
+$mail->Subject = "Bem Vindo ao $HotelName!";
+$mail->Body    = "<table width='98%' border='0' cellspacing='0' cellpadding='0'>
+    <tbody><tr>
+        <td align=center>
+
+            <table border='0' cellpadding='0' cellspacing='0' width='595'>
+                <tbody><tr>
+                    <td align=left style='border-bottom:1px solid #aaaaaa' height='70' valign='middle'>
+                        <table border='0' cellpadding='0' cellspacing='0'>
+                            <tbody><tr>
+                                <td>
+                                    <img src='http://cotendo.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/$habboweb/web-gallery/v2/images/habbologo_whiteR.gif' alt='Habbo'>
+                                </td>
+                            </tr>
+
+                        </tbody></table>
+                    </td>
+                </tr>
+
+
+<tr>
+    <td align='left' style='border-bottom:1px dashed #aaaaaa' valign='middle'>
+        <table style='margin-left:12px;margin-right:12px;padding:0 0 10px 0;width:100%' border='0' cellpadding='0' cellspacing='0'>
+            <tbody><tr>
+                <td valign='top'>
+                                    <p style='font-family:Verdana,Arial,sans-serif;font-size:20px;padding-top:15px'>
+                                        Olá, $email
+                                    </p>
+                                    <p style='font-family:Verdana,Arial,sans-serif;font-size:12px;padding-bottom:5px'>
+                                       Bem Vindo ao Hotel! <a href='$hotelurl' target='_blank'>Clique aqui para Entrar no Hotel</a>.
+                                    </p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+    <td align='left' style='border-bottom:1px solid #aaaaaa' height='100' valign='middle'>
+        <table style='margin-left:12px' border='0' cellpadding='0' cellspacing='0'>
+            <tbody><tr>
+                <td valign='middle'>
+                    <table style='background-color:#51b708;height:50px' height='50px;' cellpadding='0' cellspacing='0'>
+                        <tbody><tr>
+                            <td style='height:100%;vertical-align:middle;border:solid 2px #000000' valign='middle'>
+                                <p style='font-family:Verdana,Arial,sans-serif;font-weight:bold;font-size:18px;color:#ffffff;margin-bottom:0'>
+                                                <a style='text-decoration:none;padding:15px 20px;color:#ffffff' href='$hotelurl' target='_blank'>
+                                                   Esperamos que tenha um Bom Jogo!
+                                                </a>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+    <td valign=top align=center>
+        <table style='font-family:Verdana,Arial,sans-serif;text-align:justify;font-size:11px;color:#aaaaaa;padding-top:10px;padding-right:10px;padding-left:10px;padding-bottom:10px;margin-right:0pt;margin-left:0pt;margin-bottom:0pt' border='0' cellpadding='0' cellspacing='0' width='595'>
+            <tbody><tr>
+                <td height='8'></td>
+            </tr>
+            <tr>
+                <td valign=top>
+                                </td>
+            </tr>
+        </tbody></table>
+    </td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>";
+$mail->AltBody = "This is the body in plain text for non-HTML mail clients";
+
+if(!$mail->Send())
+{
+   echo "Message could not be sent. <p>";
+   echo "Mailer Error: " . $mail->ErrorInfo;
+   exit;
+}
+
+echo "Message has been sent";
+}
+
+if ($lang_ui=="EN") {
+require_once("../includes/mailler/class.phpmailer.php");
+$mail = new PHPMailer();
+
+$mail->IsSMTP();                                      // set mailer to use SMTP
+$mail->Host = "$smtp_host";  // specify main and backup server
+$mail->SMTPAuth = true;     // turn on SMTP authentication
+$mail->Username = "$smtp_username";  // SMTP username
+$mail->Password = "$smtp_password"; // SMTP password
+
+$mail->From = "$smtp_email";
+$mail->FromName = "$HotelName";
+$mail->AddAddress("$email", "$username");
+
+$mail->IsHTML(true);                                  // set email format to HTML
+
+$mail->Subject = "Welcome to the $HotelName!";
+$mail->Body    = "<table width='98%' border='0' cellspacing='0' cellpadding='0'>
+    <tbody><tr>
+        <td align=center>
+
+            <table border='0' cellpadding='0' cellspacing='0' width='595'>
+                <tbody><tr>
+                    <td align=left style='border-bottom:1px solid #aaaaaa' height='70' valign='middle'>
+                        <table border='0' cellpadding='0' cellspacing='0'>
+                            <tbody><tr>
+                                <td>
+                                    <img src='http://cotendo.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/$habboweb/web-gallery/v2/images/habbologo_whiteR.gif' alt='Habbo'>
+                                </td>
+                            </tr>
+
+                        </tbody></table>
+                    </td>
+                </tr>
+
+
+<tr>
+    <td align='left' style='border-bottom:1px dashed #aaaaaa' valign='middle'>
+        <table style='margin-left:12px;margin-right:12px;padding:0 0 10px 0;width:100%' border='0' cellpadding='0' cellspacing='0'>
+            <tbody><tr>
+                <td valign='top'>
+                                    <p style='font-family:Verdana,Arial,sans-serif;font-size:20px;padding-top:15px'>
+                                        Hi, $email
+                                    </p>
+                                    <p style='font-family:Verdana,Arial,sans-serif;font-size:12px;padding-bottom:5px'>
+                                       Bem Vindo ao Hotel! <a href='$hotelurl' target='_blank'>Click Here to Enter in Hotel</a>.
+                                    </p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+    <td align='left' style='border-bottom:1px solid #aaaaaa' height='100' valign='middle'>
+        <table style='margin-left:12px' border='0' cellpadding='0' cellspacing='0'>
+            <tbody><tr>
+                <td valign='middle'>
+                    <table style='background-color:#51b708;height:50px' height='50px;' cellpadding='0' cellspacing='0'>
+                        <tbody><tr>
+                            <td style='height:100%;vertical-align:middle;border:solid 2px #000000' valign='middle'>
+                                <p style='font-family:Verdana,Arial,sans-serif;font-weight:bold;font-size:18px;color:#ffffff;margin-bottom:0'>
+                                                <a style='text-decoration:none;padding:15px 20px;color:#ffffff' href'$hotelurl' target='_blank'>
+                                                   We Gotta to you get a Funny Game
+                                                </a>
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+    <td valign=top align=center>
+        <table style='font-family:Verdana,Arial,sans-serif;text-align:justify;font-size:11px;color:#aaaaaa;padding-top:10px;padding-right:10px;padding-left:10px;padding-bottom:10px;margin-right:0pt;margin-left:0pt;margin-bottom:0pt' border='0' cellpadding='0' cellspacing='0' width='595'>
+            <tbody><tr>
+                <td height='8'></td>
+            </tr>
+            <tr>
+                <td valign=top>
+                                </td>
+            </tr>
+        </tbody></table>
+    </td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>";
+$mail->AltBody = "This is the body in plain text for non-HTML mail clients";
+
+if(!$mail->Send())
+{
+   echo "Message could not be sent. <p>";
+   echo "Mailer Error: " . $mail->ErrorInfo;
+   exit;
+}
+
+echo "Message has been sent";
+}
+
+$_SESSION['account'] = $email;
+
+$_SESSION['register'] = false;
+header("Location: ../me");
+}
 ?>

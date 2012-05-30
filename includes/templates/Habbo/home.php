@@ -1,3 +1,15 @@
+<?php
+if(isset($_GET['u']))
+{
+$username = $core->EscapeString($_GET['u']);
+}
+else
+{
+$username = $core->EscapeString($_SESSION['id']);
+}
+if($users->NameTaken($username))
+{
+?>
 <div id="overlay"></div>
 <div id="header-container">
 	<div id="header" class="clearfix">
@@ -6,17 +18,6 @@
          <div id="subnavi-search-upper">
 
                <ul id="subnavi-search-links">
-<?php	if(isset($_SESSION['id'])){
-if(get_userinfo("rank")>=5){
-?>
-<li>
-<a href="<?php echo get_settings("hotel_url"); ?>/ase">Panel</a>
-<span></span>
-</li>
-<?php
-}
-}
-?>
                                
 <li>
 <a href="./FAQ/index.php">FAQ</a>
@@ -47,7 +48,7 @@ if(get_userinfo("rank")>=5){
  });
  </script><ul id="navi">        <li class="metab selected">
                    <strong>
-                           <?php echo get_userinfo("username"); ?> ( <img src="http://cotendo.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/v2/images/rpx/icon_habbo_small.png" style="margin-bottom:-2px;" /> )</i>
+                           <?php echo $users->UserInfo($username, 'username'); ?> ( <img src="http://cotendo.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/v2/images/rpx/icon_habbo_small.png" style="margin-bottom:-2px;" /> )</i>
                    </strong>
                  <span></span>
                </li>
@@ -95,7 +96,7 @@ if(get_userinfo("rank")>=5){
 	<div id="content" style="position: relative" class="clearfix">
     <div id="mypage-wrapper" class="cbb blue">
 <div class="box-tabs-container box-tabs-left clearfix">
-    <h2 class="page-owner"><?php echo get_userinfo("username"); ?> </h2>
+    <h2 class="page-owner"><?php echo $users->UserInfo($username, 'username'); ?> </h2>
     <ul class="box-tabs"></ul>
 </div>
 	<div id="mypage-content">
@@ -114,34 +115,34 @@ if(get_userinfo("rank")>=5){
 		<div class="widget-content">
 	<div class="profile-info">
 		<div class="name" style="float: left">
-		<span class="name-text"><?php echo get_userinfo("username"); ?> </span>
+		<span class="name-text"><?php echo $users->UserInfo($username, 'username'); ?> </span>
 			<img id="name-10695383-report" class="report-button report-n"
 				alt="report"
-				src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1064/web-gallery/images/myhabbo/buttons/report_button.gif"
+				src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/images/myhabbo/buttons/report_button.gif"
 				style="display: none;" />
 		</div>
 
 		<br class="clear" />
 <?php
-						if(get_userinfo($username, 'isOnline') == 1)
+						if($users->UserInfo($username, 'isonline') == 1)
 						{
 						?>
-							<img alt="Online" src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1064/web-gallery/images/myhabbo/profile/habbo_online.gif" />
+							<img alt="Online" src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/images/myhabbo/profile/habbo_online.gif" />
 						<?php
 						}
 						else
 						{
 						?>
-							<img alt="offline" src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1064/web-gallery/images/myhabbo/profile/habbo_offline.gif" />
+							<img alt="offline" src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/images/myhabbo/profile/habbo_offline.gif" />
 						<?php
 						}
 						?>
 			
 		<div class="birthday text">
-			Registerd in
+			Last Access:
 		</div>
 		<div class="birthday date">
-			<?php echo get_userinfo("registered"); ?>
+			<?php echo $users->UserInfo($username, 'lastaccess'); ?>
 		</div>
 		<div>
         	
@@ -149,7 +150,7 @@ if(get_userinfo("rank")>=5){
         </div>
 	</div>
 	<div class="profile-figure">
-			<img alt="claudio398" src="http://www.habbo.com/habbo-imaging/avatarimage?figure=<?php echo get_userinfo("look"); ?>&size=lrg&direction=3&head_direction=3&gesture=sml&size=m" />
+			<img alt="claudio398" src="http://www.habbo.com/habbo-imaging/avatarimage?figure=<?php echo $users->UserInfo($username, 'look'); ?>&size=lrg&direction=3&head_direction=3&gesture=sml&size=m" />
 	</div>
 	<br clear="all" style="display: block; height: 1px"/>
 
@@ -184,12 +185,45 @@ document.observe("dom:loaded", function() {
 		<div class="widget-headline"><h3><span class="header-left">&nbsp;</span><span class="header-middle">Badges</span><span class="header-right">&nbsp;</span></h3>
 		</div>	
 	</div>
+<?php
+if ($emulator=="azure") {
+?>	
 	<div class="widget-body">
 		<div class="widget-content">
     <div id="badgelist-content">
     <ul class="clearfix">
 			<?php
-		$userbadges = mysql_query("SELECT * FROM users_badges WHERE userid = '".$core->get_userinfo("username")."'");
+		$userbadges = mysql_query("SELECT * FROM users_badges WHERE userid = '".$users->UserInfo($username, 'username')."'");
+		if(mysql_num_rows($userbadges) == 0)
+		{
+			echo '<strong><center>No Badges</center></strong>';
+		}
+		while($userbadge = mysql_fetch_array($userbadges))
+		{
+		?>
+            <li style="background-image: url(//habbo.hs.llnwd.net/c_images/album1584/<?php echo $userbadge['badgeid']; ?>.gif)"></li>
+        <?php
+		}
+		?>
+    </ul>
+
+
+    </div>
+		<div class="clear"></div>
+		</div>
+	</div>
+<?php
+}
+?>
+<?php
+if ($emulator=="phoenix") {
+?>	
+	<div class="widget-body">
+		<div class="widget-content">
+    <div id="badgelist-content">
+    <ul class="clearfix">
+			<?php
+		$userbadges = mysql_query("SELECT * FROM user_badges WHERE user_id = '".$users->UserInfo($username, 'username')."'");
 		if(mysql_num_rows($userbadges) == 0)
 		{
 			echo '<strong><center>No Badges</center></strong>';
@@ -208,6 +242,9 @@ document.observe("dom:loaded", function() {
 		<div class="clear"></div>
 		</div>
 	</div>
+<?php
+}
+?>
 </div>
 </div>
 
@@ -222,6 +259,9 @@ document.observe("dom:loaded", function() {
 	<div class="widget-body">
 		<div class="widget-content">
 
+<?php 
+if ($emulator=="azure") {
+?>
 <div id="room_wrapper">
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
@@ -230,7 +270,7 @@ document.observe("dom:loaded", function() {
 <td >
       
 					 <?php
-		$userrooms = mysql_query("SELECT * FROM rooms WHERE ownerid = '".$core->get_userinfo("id")."'");
+		$userrooms = mysql_query("SELECT * FROM rooms WHERE ownerid = '".$users->UserInfo($username, 'id')."'");
 		$color = 'odd';
 		if(mysql_num_rows($userrooms) == 0)
 		{
@@ -241,7 +281,7 @@ document.observe("dom:loaded", function() {
 			?>
 			
 		<div class="room_image">
-				<img src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1064/web-gallery/images/myhabbo/rooms/room_icon_open.gif" alt="" align="middle"/>
+				<img src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/images/myhabbo/rooms/room_icon_open.gif" alt="" align="middle"/>
 		</div>
 			<div class="room_name" id="<?php echo $color; ?>">
             <strong><?php echo $userroom['name']; ?></strong></div>
@@ -265,6 +305,58 @@ document.observe("dom:loaded", function() {
 </tr>
 </table>
 </div>
+<?php
+}
+?>
+<?php 
+if ($emulator=="phoenix") {
+?>
+<div id="room_wrapper">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top" >
+</td>
+<td >
+      
+					 <?php
+		$userrooms = mysql_query("SELECT * FROM rooms WHERE owner_id = '".$users->UserInfo($username, 'id')."'");
+		$color = 'odd';
+		if(mysql_num_rows($userrooms) == 0)
+		{
+			echo '<div class="room_name" id="even"><strong>No Rooms</strong></div>';
+		}
+		while($userroom = mysql_fetch_array($userrooms))
+		{
+			?>
+			
+		<div class="room_image">
+				<img src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/images/myhabbo/rooms/room_icon_open.gif" alt="" align="middle"/>
+		</div>
+			<div class="room_name" id="<?php echo $color; ?>">
+            <strong><?php echo $userroom['caption']; ?></strong></div>
+			<img id="room-20727724-report" class="report-button report-r"
+						alt="report"
+						src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/images/myhabbo/buttons/report_button.gif"
+						style="display: none;" />
+            <br /><br>Room Rating: <?php echo $userroom['score']; ?>
+            
+            <?php
+			if($color == 'odd')
+			$color='even';
+			else
+			$color='odd';
+		}
+		?>
+        	</div>
+		<br class="clear" />
+
+</td>
+</tr>
+</table>
+</div>
+<?php
+}
+?>
 		<div class="clear"></div>
 		</div>
 	</div>
@@ -339,7 +431,9 @@ document.write('<scr'+'ipt language="javascript1.1" src="http://adtech.habbo.com
 
 </div>
 
-	 
+<?php
+}
+?>	 
 
 </body>
 </html>

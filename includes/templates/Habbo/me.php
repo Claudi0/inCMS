@@ -87,7 +87,12 @@ if(get_userinfo("rank")>=5){
 				
 			</li>
 			<li>
-				<a href="/home">My Page</a>
+				<a href="/home.php?u=<?php echo get_userinfo("username"); ?>">My Page</a>
+				
+			</li>
+			
+				<li>
+				<a href="/avatar.php">Avatar</a>
 				
 			</li>
 	</ul>
