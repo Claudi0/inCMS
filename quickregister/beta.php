@@ -60,6 +60,6 @@ if($_GET['ajaxAct'] == "check_habbo_beta") {
 
 	$beta = $core->EscapeString($_GET['beta']);
 	$beta_verify = beta_verify($beta);
-	if($beta_verify) echo 1; else { header("location: start" };
+	if($beta_verify) echo 1; else header("location: start");;
 }
 ?>

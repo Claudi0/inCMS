@@ -1,5 +1,6 @@
 <?php
-if ($betais=="1") {
+require_once('../includes/config1.php');
+if ($betais==1) {
 header("Location: beta1.php");
 }
 else {

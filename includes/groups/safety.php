@@ -15,18 +15,18 @@ require_once("../core.php");
 <script type="text/javascript">
 var andSoItBegins = (new Date()).getTime();
 </script>
-<link rel="shortcut icon" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/v2/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="shortcut icon" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/v2/favicon.ico" type="image/vnd.microsoft.icon" />
 <link rel="alternate" type="application/rss+xml" title="Habbo Hotel - RSS" href="http://www.habbo.com/articles/rss.xml" />
-<link rel="shortcut icon" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/v2/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="shortcut icon" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/v2/favicon.ico" type="image/vnd.microsoft.icon" />
 <link rel="alternate" type="application/rss+xml" title="Habbo Hotel - RSS" href="http://www.habbo.com/articles/rss.xml" />
 
-<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/static/styles/common.css" type="text/css" />
+<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/styles/common.css" type="text/css" />
 
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/static/js/libs2.js" type="text/javascript"></script>
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/static/js/visual.js" type="text/javascript"></script>
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/static/js/libs.js" type="text/javascript"></script>
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/static/js/common.js" type="text/javascript"></script>
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/static/js/fullcontent.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/libs2.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/visual.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/libs.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/common.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/fullcontent.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="http://habbo.com/styles/local/com.css" type="text/css" />
 
@@ -45,7 +45,7 @@ document.habboLoggedIn = false;
 var habboName = null;
 var habboId = null;
 var habboReqPath = "";
-var habboStaticFilePath = "http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery";
+var habboStaticFilePath = "http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery";
 var habboImagerUrl = "http://www.habbo.com/habbo-imaging/";
 var habboPartner = "";
 var habboDefaultClientPopupUrl = "http://www.habbo.com/client";
@@ -59,13 +59,13 @@ if (typeof HabboClient != "undefined") {
 </script>
 
 
-<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/static/styles/home.css" type="text/css" />
+<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/styles/home.css" type="text/css" />
 	<link href="http://habbo.com/myhabbo/styles/assets/other.css?v=537a42ab2c3457b71542f43e8deeed1b" type="text/css" rel="stylesheet" />
     <link href="http://habbo.com/myhabbo/styles/assets/backgrounds.css?v=9e99ee8806730defc59306ac2084e2d1" type="text/css" rel="stylesheet" />
     <link href="http://habbo.com/myhabbo/styles/assets/stickers.css?v=73d0e4e4e2d5183848be8661fa19d689" type="text/css" rel="stylesheet" />
 
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/static/js/homeview.js" type="text/javascript"></script>
-<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1028/web-gallery/static/styles/lightwindow.css" type="text/css" />
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/homeview.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/styles/lightwindow.css" type="text/css" />
 <style type="text/css">
 
     #playground, #playground-outer {

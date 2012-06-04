@@ -33,6 +33,7 @@ $bean_password = md5($_SESSION['bean_password']);
 $bean_figure = mysql_real_escape_string($_POST['bean_figure']);
 mysql_query("INSERT INTO `users` (`username`, `password`, `mail`, `rank`, `credits`, `pixels`, `look`, `gender`, `isonline`, `ip`, `lastaccess`, `default`) VALUES ('".$bean_username."', '".$bean_password."', '".$bean_email."', '1', '".get_settings("initial_credits")."', '".get_settings("initial_pixels")."', '".$bean_figure."', '".$_SESSION['bean_gender']."', '0', '".$_SERVER['REMOTE_ADDR']."', '0', '1');") or die (mysql_error());
 
+if ($envio_de_email==1) {
 if ($lang_ui=="PT") {
 require_once("../includes/mailler/class.phpmailer.php");
 $mail = new PHPMailer();
@@ -238,7 +239,7 @@ if(!$mail->Send())
 
 echo "Message has been sent";
 }
-
+}
 
 $get_id = mysql_query("SELECT id FROM `users` WHERE `username` = '".$bean_username."';");
 $get_id_result = mysql_fetch_array($get_id);
@@ -296,6 +297,7 @@ exit;
 
 $users->AddUser($username, $password, $email, $core->EscapeString($_POST['figure']), 'Welcome!');
 
+if ($envio_de_email==1) {
 if ($lang_ui=="PT") {
 require_once("../includes/mailler/class.phpmailer.php");
 $mail = new PHPMailer();
@@ -501,7 +503,7 @@ if(!$mail->Send())
 
 echo "Message has been sent";
 }
-
+}
 $_SESSION['account'] = $email;
 
 $_SESSION['register'] = false;
