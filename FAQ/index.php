@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+﻿<?php
+require_once('../includes/config1.php');
+ ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
@@ -8,7 +11,7 @@
 <script type="text/javascript">
 var andSoItBegins = (new Date()).getTime();
 </script>
-<link rel="shortcut icon" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/v2/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="shortcut icon" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/v2/favicon.ico" type="image/vnd.microsoft.icon" />
 <link rel="alternate" type="application/rss+xml" title="Habbo: RSS" href="http://www.habbo.it/articles/rss.xml" />
 
 
@@ -23,7 +26,7 @@ document.habboLoggedIn = false;
 var habboName = null;
 var habboId = null;
 var habboReqPath = "";
-var habboStaticFilePath = "http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery";
+var habboStaticFilePath = "http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery";
 var habboImagerUrl = "http://www.habbo.it/habbo-imaging/";
 var habboPartner = "";
 var habboDefaultClientPopupUrl = "http://www.habbo.it/client";
@@ -38,12 +41,12 @@ if (typeof HabboClient != "undefined") {
 <meta property="fb:app_id" content="163345683587" />
 
 <link rel="stylesheet" href="common.css" type="text/css" />
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/static/js/visual.js" type="text/javascript"></script>
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/static/js/libs2.js" type="text/javascript"></script>
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/static/js/libs.js" type="text/javascript"></script>
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/static/js/common.js" type="text/javascript"></script>
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/static/js/fullcontent.js" type="text/javascript"></script>
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/static/js/faq.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/visual.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/libs2.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/libs.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/common.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/fullcontent.js" type="text/javascript"></script>
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/faq.js" type="text/javascript"></script>
 
 <meta name="description" content="Habbo Hotel: amici, divertimento, celebrità!" />
 <meta name="keywords" content="habbo hotel, virtuale, mondo, social network, gratis, community, avatar, personaggio, chat, online, giovane, ragazzi, gioco di ruolo, giochi di ruolo, iscriviti, social, gruppi, forum, sicurezza, giocare, giochi, online, amici, giovani, rari, furni rari, collezione, creare, collezionare, connettersi, furni, mobili, cuccioli, animali, creazione stanze, condivisione, espressione, distintivi, badge, uscire, musica, VIP, celebrità, visite VIP, famosi, mmo, mmorpg, multiplayer" />
@@ -51,14 +54,14 @@ if (typeof HabboClient != "undefined") {
 
 
 <!--[if IE 8]>
-<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/static/styles/ie8.css" type="text/css" />
+<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/styles/ie8.css" type="text/css" />
 <![endif]-->
 <!--[if lt IE 8]>
-<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/static/styles/ie.css" type="text/css" />
+<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/styles/ie.css" type="text/css" />
 <![endif]-->
 <!--[if lt IE 7]>
-<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/static/styles/ie6.css" type="text/css" />
-<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/static/js/pngfix.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/styles/ie6.css" type="text/css" />
+<script src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/static/js/pngfix.js" type="text/javascript"></script>
 <script type="text/javascript">
 try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {}
 </script>
@@ -71,7 +74,7 @@ body { behavior: url(/js/csshover.htc); }
 </head>
 <body>
 <div id="faq" class="clearfix">
-<div id="faq-header" class="clearfix"><img src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/1016/web-gallery/v2/images/faq/faq_header.png" /><form method="post" action="/help/faqsearch" class="search-box"><input type="text" id="faq-search" name="query" class="search-box-query search-box-onfocus" size="50" value="Cerca..."/><input type="submit" value="" title="Cerca" class="search" /></form></div>
+<div id="faq-header" class="clearfix"><img src="http://images.habbo.com/habboweb/63_1dc60c6d6ea6e089c6893ab4e0541ee0/<?php echo $habboweb ?>/web-gallery/v2/images/faq/faq_header.png" /><form method="post" action="/help/faqsearch" class="search-box"><input type="text" id="faq-search" name="query" class="search-box-query search-box-onfocus" size="50" value="Cerca..."/><input type="submit" value="" title="Cerca" class="search" /></form></div>
 <div id="faq-container" class="clearfix">
 <div id="faq-category-list">
 <ul class="faq">
