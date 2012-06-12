@@ -189,14 +189,13 @@ HabboView.add( function() {
 
             
 
-<form id="link-new-avatar" method="post" action="./includes/functions/addavatar.php">
-            	<input type="hidden" name="character" id="character" value="1" />
-				<input type="hidden" name="email" id="email" value="<?php echo get_userinfo("username"); ?>" />
+<form id="Add_Avatar" method="post" action="./add_avatar.php">
+				<input type="hidden" name="email" id="email" value="<?php echo get_userinfo("mail"); ?>" />
 				<input type="hidden" name="bdday" id="bdday" value="why" />
 				<input type="hidden" name="bdmonth" id="bdmonth" value="are" />
 				<input type="hidden" name="bdyear" id="bdyear" value="you" />
-				<input type="hidden" name="password" id="password" value="LookingHere" />
-				<div id="link-new-avatar"><a class="new-button " onclick="Add_Avatar.submit();"><b>+ Add</b><i></i></a></div>
+				<input type="hidden" name="password" id="password" value="uzumymw3545463" />
+				<div id="link-new-avatar"><a class="new-button " ><b><div class="AddAvatar" onclick="Add_Avatar.submit();">+ Add</div></b><i></i></a></div>
 				
 			</form>
 
@@ -215,9 +214,9 @@ HabboView.add( function() {
 
                         <div class="avatar-info-container">
 
-                          <div class="avatar-name">"'.$user["username"].'"</div>
+                          <div class="avatar-name">'.$user["username"].'</div>
 
-	            	      <div class="avatar-lastonline">Last Acces: <span title="14/02/12 22:18">"'.$user["lastaccess"].'"</span></div>
+	            	      <div class="avatar-lastonline">Last Acces: <span title="14/02/12 22:18">'.$user["lastaccess"].'</span></div>
 
                         </div>
 
@@ -244,7 +243,7 @@ HabboView.add( function() {
   </div>
 <div id="footer">
 	<p class="footer-links"><a href="mailto:advertising.br@sulake.com" taget="_new">Anuncie</a> | <a href="https://help.habbo.com.br" target="_new">Contate-nos</a> | <a href="https://help.habbo.com.br/forums" target="_new">FAQs</a> | <a href="http://www.sulake.com" target="_new">Sulake</a> | <a href="https://help.habbo.com.br/entries/20477982-termos-e-condicoes" target="_new">Termos e Condições</a> | <a href="https://help.habbo.com.br/entries/390888-politica-de-privacidade" target="_new">Política de Privacidade</a> | <a href="http://www.habbo.com.br/groups/guiapais" target="_new">Guia dos Pais</a> | <a href="http://www.habbo.com.br/groups/etiquetahabbo" target="_new">Habbo Etiqueta</a> | <a href="/groups/dicasdeseguranca">Segurança</a></p>
-	<p class="copyright">© 2008 - 2010 Sulake Corporation Ltd. HABBO é marca registrada da Sulake Corporation Oy na União Européia, EUA, Japão, China e várias outras jurisdições. Todos os direitos reservados.</p>
+	<p class="copyright">© inCMS by bi0s</p>
 </div>    <script type="text/javascript">
         Embed.decorateFooterLinks();
     </script>

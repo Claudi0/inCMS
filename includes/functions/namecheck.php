@@ -1,8 +1,7 @@
 <?php
-include("../core.php");
-$username = $core->EscapeString($_GET['habbo_name']);
+$username = $core->EscapeString($_POST['husername']);
 if($users->ValidName($username) && !$users->NameTaken($username))
-echo 1;
+header("Location: includes/functions/complete.php");
 else
-echo 0;
+header("Location: add_avatar.php?error=usrname");
 ?>

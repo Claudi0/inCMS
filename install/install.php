@@ -161,6 +161,6 @@ There is Magoe. Then you can set using the Control Panel. So You Ready? Let ther
 			</div>
 		</div>
 		<div id="copyright"><a href="http://www.joomla.org/" target="_blank">inCMS</a>
-			Based on SpheraCMS.		</div>
+			By bi0s	</div>
 	</body>
 </html>

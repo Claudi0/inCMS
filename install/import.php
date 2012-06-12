@@ -1,9 +1,82 @@
 <?php
 mysql_query("DROP TABLE IF EXISTS `cms_news`");
+mysql_query("DROP TABLE IF EXISTS `cms_registration_figures`;
+CREATE TABLE `cms_registration_figures` (
+  `figure` varchar(70) NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  PRIMARY KEY (`figure`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;");
+mysql_query("INSERT INTO `cms_registration_figures` VALUES ('hr-515-45.hd-600-8.ch-884-76.lg-696-76.sh-740-76.ea-1401-76.ca-1815-62', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-545-42.hd-600-28.ch-884-68.lg-700-68.sh-905-71.he-1601.ea-1406.fa-1', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hd-600-3.ch-630-62.lg-695-62.sh-730-62.ca-1801-62', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-515-48.hd-625-22.ch-660-79.lg-700-64.ea-1406', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-890-42.hd-629-1.ch-685-74.lg-710-74.sh-907-74.he-1608.ca-1815-74.wa', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-125-45.hd-180-4.ch-225-88.lg-285-89.sh-300-64.ha-1023-88', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-115-42.hd-180-3.ch-210-62.lg-285-64.sh-290-62', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-155-39.hd-180-1.ch-267-64.lg-281-64', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-165-40.hd-206-2.ch-255-77.lg-275-76.sh-305-78.ha-1010-65.ea-1404-78', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-110-45.hd-180-30.ch-215-66.lg-270-64.sh-300-64.ea-1404-64.wa-2007.c', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-115-45.hd-180-7.ch-255-82.lg-280-64.sh-290-62', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-115-45.hd-180-1.ch-255-64.lg-285-82.sh-300-62.cp-3121-64', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-165-36.hd-180-1.ch-235-64.lg-285-64.sh-305-64.ea-1404-62.wa-2009-62', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-893-39.hd-180-7.ch-245-64.lg-281-64.sh-906-64.ea-1404-64', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-115-37.hd-180-1.ch-220-64.lg-285-64.sh-300-64', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-165-45.hd-207-9.ch-255-64.lg-275-64.sh-305-64', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-125-45.hd-190-4.ch-215-79.lg-285-73.sh-290-62', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-515-42.hd-600-1.ch-655-83.lg-710-64.sh-730-64', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-545-39.hd-600-8.ch-655-62.lg-710-73.sh-730-62.he-1602-73.ca-1812', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-515-36.hd-605-7.ch-660-71.lg-700-71', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-892-45.hd-600-1.ch-645-83.lg-720-83.sh-907-83.fa-1212.ca-1819', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-545-33.hd-600-1.ch-665-78.lg-715-89.sh-907-62', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-890-31.hd-600-2.ch-660-62.lg-700-79.sh-906-62.he-1602-80.ca-1805-78', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-540-34.hd-600-9.ch-640-62.lg-700-64.sh-907-70.he-1602-62.ca-1804-73', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hd-620-10.ch-660-64.lg-710-64.sh-906-70.wa-2009-72.hr-890-38', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hr-890-47.hd-629-1.ch-685-78.lg-715-85.sh-735-72.he-1606-85.ca-1804-84', 'f');
+INSERT INTO `cms_registration_figures` VALUES ('hd-180-8.ch-255-83.lg-270-83.sh-905-83.ha-1020.fa-1202-83', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-165-32.hd-209-17.ch-878-1315-81.lg-3116-72-1315.ea-1401-62.fa-1212.', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hd-180-10.ch-215-62.lg-270-62', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-145-31.hd-185-10.ch-255-62.lg-270-62.he-1601', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-893-33.hd-209-1.ch-3110-81-76.lg-270-80.fa-1202-80', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-165-45.hd-180-3.ch-215-62.lg-3116-64-73.sh-300-62', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-893-37.hd-180-1.ch-3111-68-67.lg-270-64.sh-906-62', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-115-31.hd-180-7.ch-877-64-62.lg-270-64.sh-305-62.wa-2009-62', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-115-31.hd-190-7.ch-255-73.lg-285-82.sh-300-64.fa-1201', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-145-42.hd-208-2.ch-225-73.lg-285-64.sh-300-64.wa-2001', 'm');
+INSERT INTO `cms_registration_figures` VALUES ('hr-165-42.hd-180-1.ch-255-62.lg-280-64.sh-906-62.ea-1404-62.wa-2011', 'm');");
+
+
 mysql_query("DROP TABLE IF EXISTS `cms_campaigns`");
+mysql_query("DROP TABLE IF EXISTS `cms_pm`;");
+mysql_query("CREATE TABLE `cms_pm` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `toid` int(11) DEFAULT NULL,
+  `fromid` int(11) DEFAULT NULL,
+  `timestamp_sent` int(11) DEFAULT NULL,
+  `timestamp_received` int(11) DEFAULT NULL,
+  `subject` char(100) DEFAULT NULL,
+  `message` text,
+  `folder` char(10) DEFAULT NULL,
+  `read` enum('1','0') DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=282 DEFAULT CHARSET=latin1;");
+mysql_query("DROP TABLE IF EXISTS `cms_pm_report`;");
+mysql_query("CREATE TABLE `cms_pm_report` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `reported_pm` int(11) DEFAULT NULL,
+  `reported_by` int(11) DEFAULT NULL,
+  `reason` varchar(255) DEFAULT NULL,
+  `handled_by` int(11) DEFAULT NULL,
+  `solved` enum('0','1') CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;");
 mysql_query("CREATE TABLE IF NOT EXISTS `cms_adtech` (
   `size` varchar(200) NOT NULL,
   `content` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+
+mysql_query("CREATE TABLE IF NOT EXISTS `beta` (
+  `code` varchar(40) NOT NULL,
+  UNIQUE KEY `code` (`code`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
 
 mysql_query("CREATE TABLE IF NOT EXISTS `cms_campaigns` (

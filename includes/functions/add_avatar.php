@@ -1,8 +1,7 @@
 <?php
-require_once('../includes/core.php');
+require_once('./includes/core.php');
 if($_POST['email'] == NULL || $_POST['bdday'] == NULL || $_POST['bdmonth'] == NULL || $_POST['bdyear'] == NULL || $_POST['password'] == NULL)
-header("Location: ../index.php");
-$_SESSION['register'] = true;
+header("Location: ./avatar.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -92,72 +91,10 @@ body { behavior: url(/js/csshover.htc); }
 
 
 
-
-<script type="text/javascript">
-
-HabboView.add( function() {
-
-     ChangePassword.init();
-
-
-
-
-
-});
-
-</script><div id="container">
-
-			<script type="text/javascript"> 
-				function doUpdateImage( incoming ) {
-					$('#figure').val(incoming.rel);
-					document.getElementById('main_reg_img').src = 'http://www.habbo.com/habbo-imaging/avatarimage?figure=' + incoming.rel + '&size=b&direction=2';
-					return false;
-				}
-				
-				function enableField() {
-					$('#username').val($('#habbo_name_field').val());
-					document.getElementById('register-button').disabled=false;
-				}
- 
-				function disableField() {
-					$('#username').val('');
-					document.getElementById('register-button').disabled=true;
-				}
- 
-				function doCheckHabboName() {
-					name = $("#habbo_name_field").val();
-					
-					if( name.length < 3 ) {
-						$("#habbo_name_message_box").html("Username");
-						$("#habbo_name_message_box").removeClass().addClass("errormsg");
-						disableField();
-							
-						return false;
-					}
-					
-					$.get("namecheck.php", {ajaxAct: "check_habbo_name", habbo_name: name}, function(data) {
-						if( $.trim(data) == "1" ) {
-							$("#habbo_name_message_box").html("Name Avaliable");
-							$("#habbo_name_message_box").removeClass().addClass("goodmsg");
-							enableField();
-						} else {
-							$("#habbo_name_message_box").html("Name Not Avaliable");
-							$("#habbo_name_message_box").removeClass().addClass("errormsg");
-							disableField();
-						}
-					});
-				}
-				
-				$('#habbo_name_field').keypress(function(e){
-					if(e.which == 13){
-						doCheckHabboName();
-					}
-				});
-				
-				$('#habbo_name_field').blur(function(e){
-					doCheckHabboName();
-				});
-				</script>
+<form id="register_step_two" method="post" action="./includes/functions/complete.php">
+<div id="container">
+<div id="oi">
+	
 
 
 
@@ -175,14 +112,12 @@ HabboView.add( function() {
 
         <div id="content">
 
-          
+          <a id="back-link" href="avatar.php">«Back</a>
+  <a id="account-link">Register you Avatar</a>
 
 
 
-            <input type="hidden" name="__app_key" value="cb96221f65" />
-
-
-
+           
             <div id="error-messages-container" style="margin-top: 10px" class="errormsg display_none">
 
             </div>
@@ -193,17 +128,20 @@ HabboView.add( function() {
 
                 <div class="field field-habbo-name">
 
-                  <label for="habbo-name">Username</label>
+                  <label for="habbo-name1">Username</label>
 
-                  <a href="#" class="new-button" id="check-name-btn" onmousedown="this.style.backgroundColor='#ddd'; doCheckHabboName();"><b>Checar</b><i></i></a>
-
-                  <input type="text" id="habbo-name" size="32" value="" name="bean.avatarName" class="text-field" maxlength="32"/>
+                
+         <input type="text" id="habbo_name" name="habbo_name" /> 
+		<a href="#" class="new-button" id="check-name-btn"><b>Check</b><i></i></a>
+			
+					
+						
 
                     <div id="name-suggestions">
 
                     </div>
 
-                  <p class="help">Seu nome pode conter minúsculas, maiúsculas, números e caracteres  - =?!@:.</p>
+                  
 
                 </div>
 
@@ -211,29 +149,28 @@ HabboView.add( function() {
 
             <div id="avatar-field-container" class="clearfix">
 
-
                 <div id="avatar-choices">
-
+<div id="main_reg_img">
                   <h3>Girls</h3> 
 						<?php
-						$query = mysql_query("SELECT * FROM cms_registration_figures WHERE gender = 'f' ORDER BY RAND() LIMIT 11");
+						$query = mysql_query("SELECT * FROM cms_registration_figures WHERE gender = 'f' ORDER BY RAND() LIMIT 10");
 						while($figure = mysql_fetch_array($query))
 						{
-							echo '<a class="female-avatar" onclick="doUpdateImage(this); return false;" rel="'.$figure["figure"].'"><img src="http://www.habbo.com/habbo-imaging/avatarimage?figure='.$figure["figure"].'&direction=4&size=s" width="33" height="56"/></a>';
+							echo '<a class="female-avatar" id="figure" onclick="doUpdateImage(this); return false;" rel="'.$figure["figure"].'"><img src="http://www.habbo.com/habbo-imaging/avatarimage?figure='.$figure["figure"].'&direction=4&size=s" width="33" height="56"/></a>';
 						}
 						?>
                         <h3>Boys</h3> 
 						<?php
-						$query = mysql_query("SELECT * FROM cms_registration_figures WHERE gender = 'm' ORDER BY RAND() LIMIT 11");
+						$query = mysql_query("SELECT * FROM cms_registration_figures WHERE gender = 'm' ORDER BY RAND() LIMIT 10");
 						while($figure = mysql_fetch_array($query))
 						{
-							echo '<a class="male-avatar" onclick="doUpdateImage(this); return false;" rel="'.$figure["figure"].'"><img src="http://www.habbo.com/habbo-imaging/avatarimage?figure='.$figure["figure"].'&direction=4&size=s" width="33" height="56"/></a>';
+							echo '<a class="male-avatar" id="figure" onclick="doUpdateImage(this); return false;" rel="'.$figure["figure"].'"><img src="http://www.habbo.com/habbo-imaging/avatarimage?figure='.$figure["figure"].'&direction=4&size=s" width="33" height="56"/></a>';
 						}
 						?>
 
                     
                 </div>
-
+</div>
             </div>
 
             <br clear="all"/>
@@ -242,24 +179,21 @@ HabboView.add( function() {
 
          
 
-        <form id="register_step_two" method="post" action="complete.php">
-                	<?php if($_POST['character'] == '1')
-					echo  '<input type="hidden" name="character" id="character" value="1" />';
-					?>
+        
+                	
 					<input type="hidden" name="email" id="email" value="<?php echo($_POST['email']); ?>" />
 					<input type="hidden" name="bdday" id="bdday" value="<?php echo($_POST['bdday']); ?>" />
 					<input type="hidden" name="bdmonth" id="bdmonth" value="<?php echo($_POST['bdmonth']); ?>" />
 					<input type="hidden" name="bdyear" id="bdyear" value="<?php echo($_POST['bdyear']); ?>">
-					<input type="hidden" name="username" id="username" value="" />
 					<input type="hidden" name="figure" id="figure" value="hr-515-45.hd-600-8.ch-884-76.lg-696-76.sh-740-76.ea-1401-76.ca-1815-62.wa-2011" />
 					<input type="hidden" name="password" id="password" value="<?php echo($_POST['password']); ?>" />
-					<input type="submit" id="done-btn" class="new-button green-button" value="Complete" id="register-button" onmousedown="this.style.backgroundColor='##ddd';" onmouseup="this.style.backgroundColor='##eee';" onmouseover="this.style.backgroundColor='##eee';" onmouseout="this.style.backgroundColor='##fff';" disabled="disabled" />	
-				</form>
+					<div id="link-new-avatar"><a class="new-button" ><b><div class="register_step_two" onclick="register_step_two.submit();">+ Add</div></b><i></i></a></div>
+					</form>
 
         </div>
 
     </div>
-
+</div>
     <div class="add-avatar-container-bottom"></div>
 
   </div>
